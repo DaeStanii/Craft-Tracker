@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import Logo from "../public/craft-tracker.png"
 
 const Header = () => {
   const logout = (event) => {
@@ -8,19 +9,21 @@ const Header = () => {
   };
 
   return (
-    <header className="text-center bg-gradient-to-r from-green-400/50 to-blue-500/50">
+    <header className="h-24 pt-3 pb-2 text-center bg-gradient-to-r from-green-400/50 to-blue-500/50">
       <div>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <img src={Logo} style={{width: "75px"}} className="ml-2 rounded-full"></img>
+        </Link>
         {Auth.loggedIn() ? (
-          <>
+          <div  style={{position: "absolute", top: "65px", right: "10px"}}>
             <Link to="/profile">Profile</Link>
             <button onClick={logout}>
               <Link to="/">Logout</Link>
             </button>
-          </>
+          </div>
         ) : (
           <>
-            <Link to="/login">Get Started</Link>
+            <Link to="/login" style={{position: "absolute", top: "65px", right: "10px"}}>Get Started</Link>
           </>
         )}
       </div>
