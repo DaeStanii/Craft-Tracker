@@ -43,7 +43,8 @@ const Login = () => {
 
   return (
     <main className="flex justify-center items-center mt-5">
-      <div className="container w-1/2 max-w-500">
+      {/* TODO fix full screen display */}
+      <div className="container w-1/2">
         <div
           style={{
             backgroundImage: `url(${backgroundImage})`,

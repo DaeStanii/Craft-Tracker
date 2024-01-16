@@ -17,8 +17,9 @@ const Header = () => {
         {Auth.loggedIn() ? (
           <div  style={{position: "absolute", top: "65px", right: "10px"}}>
             <Link to="/profile">Profile</Link>
+            <Link to="/projects" className="ml-2">Projects</Link>
             <button onClick={logout}>
-              <Link to="/">Logout</Link>
+              <Link to="/" className="ml-2">Logout</Link>
             </button>
           </div>
         ) : (

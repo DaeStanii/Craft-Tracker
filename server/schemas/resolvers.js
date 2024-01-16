@@ -5,17 +5,17 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-    //   .populate('thoughts');
+    //   .populate('projects');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-    //   .populate('thoughts');
+    //   .populate('projects');
     },
     
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
-        // .populate('thoughts');
+        // .populate('projects');
       }
       throw AuthenticationError;
     },

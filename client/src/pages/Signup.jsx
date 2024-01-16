@@ -41,6 +41,7 @@ const Signup = () => {
 
   return (
     <main className="flex justify-center items-center mt-5">
+      {/* TODO fix full screen view */}
       <div className="container w-1/2">
 
       <div

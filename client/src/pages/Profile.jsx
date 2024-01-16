@@ -1,8 +1,12 @@
+import Auth from '../utils/auth';
+
 const Profile = () => {
 
     return (
-        <div>
-            <h2>The Profile Page</h2>
+        <div className='text-center'>
+            <h3>
+                Welcome to your profile {Auth.getProfile().data.username}!
+            </h3>
         </div>
     )
 }
