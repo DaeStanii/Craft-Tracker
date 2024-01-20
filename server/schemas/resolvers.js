@@ -1,6 +1,7 @@
-const { User } = require('../models');
+const { User, Project, Material } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
+//TODO: Add Project and Material Queries
 const resolvers = {
   Query: {
     users: async () => {
@@ -11,7 +12,6 @@ const resolvers = {
       return User.findOne({ username })
     //   .populate('projects');
     },
-    
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
@@ -21,6 +21,7 @@ const resolvers = {
     },
   },
 
+  //TODO: Add Project and Material Mutations
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
