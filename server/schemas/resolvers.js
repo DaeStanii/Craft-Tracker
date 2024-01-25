@@ -48,7 +48,42 @@ const resolvers = {
 
       return { token, user };
     },
-   
+   addProject: async (parent, { projectTitle }, context) => {
+    if (context.user) {
+      const project = await Project.create({
+        projectTitle
+      });
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { projects: project._id } }
+      );
+    }
+    throw AuthenticationError;
+   },
+   addMaterial: async (parent, { materialLabel, materialDetail }, context) => {
+    if (context.user) {
+      return Project.findOneAndUpdate(
+        { _id: projectId },
+        {
+          $addToSet: {
+            materials: { materialLabel, materialDetail },
+          },
+        },
+        {
+          new: true,
+          // test with and without runValidators
+          runValidators: true,
+        }
+      );
+    }
+    throw AuthenticationError;
+   },
+   removeProject: async (parent, { projectId }, context) => {
+    if (context.user) {
+      
+    }
+   }
   },
 };
 
