@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail'
 
 const router = createBrowserRouter([
   {
@@ -28,12 +28,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: '/profile',
+        path: '/profiles/:username',
         element: <Profile />
       },
       {
-        path: '/projects',
-        element: <Projects />
+        path: '/me',
+        element: <Profile />
+      },
+      {
+        path: '/projects/:projectId',
+        element: <ProjectDetail />
       }
     ]
   }

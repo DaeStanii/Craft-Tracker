@@ -23,3 +23,55 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PROJECT = gql`
+  mutation addProject($projectTitle: String!) {
+    addProject(projectTitle: $projectTitle) {
+      _id
+      projectTitle
+      projectAuthor
+      createdAt
+      materials {
+        _id
+        materialLabel
+        materialDetail
+      }
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
+
+export const ADD_MATERIAL = gql`
+  mutation addMaterial($projectId: ID!, $materialLabel: String!, $materialDetail: String!) {
+    addMaterial(projectId: $projectId, materialLabel: $materialLabel, materialDetail: $materialDetail) {
+      _id
+      projectTitle
+      createdAt
+      materials {
+        _id
+        materialLabel
+        materialDetail
+        createdAt
+      }
+    }
+  }
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($projectId: ID!, $commentText: String!) {
+    addComment(projectID: $projectId, commentText: $commentText) {
+      _id
+      projectTitle
+      projectAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`

@@ -1,44 +1,29 @@
-import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+
+import ProjectList from "../components/ProjectList/ProjectList";
+import ProjectForm from "../components/ProjectForm/ProjectForm";
+
+import { QUERY_PROJECTS } from "../utils/queries";
 
 const Home = () => {
+  const { loading, data } = useQuery(QUERY_PROJECTS);
+  const projects = data?.projects || [];
+
   return (
-    <div className="text-center">
-      {Auth.loggedIn() ? (
+    <main>
+      <div>
         <div>
-          <h2>The Home Page</h2>
-          {/* Display all crafts, maybe implement a public button on crafts */}
-          <p>
-            Start crafting on the projects page and your projects will display
-            here!
-          </p>
+          <ProjectForm />
         </div>
-      ) : (
-        // Landing page
-
         <div>
-          <h2 className="text-bold">Welcome to Craft Tracker!</h2>
-          <p className="text-sm">
-            Do you have trouble remembering what colors you painted with after
-            you have an art block? Do you ever run to the store with a million
-            pictures of paint bottles you need refills of? Theres no need to
-            clutter your photos anymore. You can enter in brands and colors of
-            the mediums you use to track what you use and where you use it in
-            your art pieces.{" "}
-          </p>
-          <h3>Here are a few examples of trackable crafts!</h3>
-          <ul>
-            <li>Knitting</li>
-            <li>Crochet</li>
-            <li>Painting</li>
-            <li>Coloring</li>
-            <li>Embroidery</li>
-            <li>etc...</li>
-          </ul>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <ProjectList projects={projects} title="Current Projects..." />
+          )}
         </div>
-
-        // List of craft categories
-      )}
-    </div>
+      </div>
+    </main>
   );
 };
 

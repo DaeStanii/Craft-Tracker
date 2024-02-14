@@ -5,3 +5,7 @@
 .background {
     background-color: azure;
 }
+
+.transparent {
+    background-color: transparent;
+}
