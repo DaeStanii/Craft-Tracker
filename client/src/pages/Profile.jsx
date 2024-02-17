@@ -1,39 +1,29 @@
-import { Navigate, useParams } from 'react-router-dom';
-import Auth from '../utils/auth';
-import { useQuery } from '@apollo/client';
-import { QUERY_ME, QUERY_USER } from '../utils/queries';
+import { useState } from "react";
+
+import Auth from "../utils/auth";
+import Create from "../public/create.png";
+import ProjectForm from "../components/ProjectForm/ProjectForm";
 
 const Profile = () => {
 
-    const { username: userParam } = useParams();
+  const [showCreate, setShowCreate] = useState(false);
 
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-        variables: { username: userParam },
-    });
+  const createCraft = () => {
+    setShowCreate((showCreate) => !showCreate);
+  };
 
-    const user = data?.me || data?.user || {};
+  return (
+    <div className="text-center">
+      <h3>Welcome to your profile, {Auth.getProfile().data.username}!</h3>
 
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-        return <Navigate to="/me" />;
-    }
-
-    if (loading) {
-        return <div>Loading...</div>
-    }
-
-    if (!user?.username) {
-        return (
-            <h3> You need to be logged in to see this. Please use the navigation links above to sign up or log in!</h3>
-        );
-    }
-
-    return (
-        <div className='text-center'>
-            <h3>
-                Welcome to your profile {Auth.getProfile().data.username}!
-            </h3>
-        </div>
-    )
-}
+      <section>
+        <button onClick={createCraft}>
+          <img src={Create} className="rounded-full w-7" />
+        </button>
+        { showCreate && <ProjectForm /> }
+      </section>
+    </div>
+  );
+};
 
 export default Profile;

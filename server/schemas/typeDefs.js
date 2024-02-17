@@ -10,6 +10,7 @@ const typeDefs = `
   type Project {
     _id: ID
     projectTitle: String
+    projectAuthor: String
     createdAt: String
     materials: [Material]!
     comments: [Comment]!
@@ -19,7 +20,6 @@ const typeDefs = `
     _id: ID
     materialLabel: String
     materialDetail: String
-    materialAuthor: String
     createdAt: String
   }
 

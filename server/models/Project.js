@@ -8,6 +8,11 @@ const projectSchema = new Schema({
         unique: true,
         trim: true,
     },
+    projectAuthor: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now,

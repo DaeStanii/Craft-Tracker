@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 
 import ProjectList from "../components/ProjectList/ProjectList";
-import ProjectForm from "../components/ProjectForm/ProjectForm";
 
 import { QUERY_PROJECTS } from "../utils/queries";
 
@@ -13,13 +12,13 @@ const Home = () => {
     <main>
       <div>
         <div>
-          <ProjectForm />
-        </div>
-        <div>
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProjectList projects={projects} title="Current Projects..." />
+            <ProjectList 
+            projects={projects} 
+            title="Current Projects..." 
+            />
           )}
         </div>
       </div>

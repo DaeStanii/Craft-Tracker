@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import Logo from "../public/craft-tracker.png";
-import Home from "../public/home.png";
-import Create from "../public/create.png";
-import Profile from "../public/profile.png";
-import Logout from "../public/logout.png";
+import Logo from "../../public/craft-tracker.png";
+import Home from "../../public/home.png";
+import Profile from "../../public/profile.png";
+import Logout from "../../public/logout.png";
 
 const Header = () => {
   const logout = (event) => {
@@ -33,15 +32,9 @@ const Header = () => {
                 className="rounded-full w-7"
               />
             </Link>
-            <Link to="/profile">
+            <Link to="/me">
               <img
                 src={Profile}
-                className="rounded-full w-7"
-              />
-            </Link>
-            <Link to="/projects">
-              <img
-                src={Create}
                 className="rounded-full w-7"
               />
             </Link>

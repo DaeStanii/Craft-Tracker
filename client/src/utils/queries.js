@@ -37,7 +37,6 @@ export const QUERY_SINGLE_PROJECT = gql`
         _id
         materialLabel
         materialDetail
-        materialAuthor
         createdAt
       }
       comments {

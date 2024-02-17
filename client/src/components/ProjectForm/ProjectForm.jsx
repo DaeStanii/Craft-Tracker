@@ -8,7 +8,7 @@ import plus from "../../public/plus.png"
 
 const ProjectForm = () => {
 
-    const [projectTitle, setProjectTitle] = useState("");
+    const [formState, setFormState] = useState({ projectTitle: "" });
 
     const [addProject, { error }] = useMutation(ADD_PROJECT, {
         refetchQueries: [
@@ -19,20 +19,31 @@ const ProjectForm = () => {
         ]
     });
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
+        })
+
+    }
+
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
         try {
             // eslint-disable-next-line no-unused-vars
             const { data } = await addProject({
-                variables: {
-                    projectTitle,
-                },
+                variables: { ...formState },
             });
-            setProjectTitle("");
         } catch (err) {
             console.log(err);
         }
+
+        setFormState({
+            projectTitle: ""
+        })
     };
 
     return (
@@ -42,9 +53,11 @@ const ProjectForm = () => {
             >
                 <input 
                 name="projectTitle"
-                value={projectTitle}
+                onChange={handleChange}
+                value={formState.projectTitle}
+                type="text"
                 placeholder="Your Project Title"
-                />
+                ></input>
                 <button
                 type="submit"
                 >

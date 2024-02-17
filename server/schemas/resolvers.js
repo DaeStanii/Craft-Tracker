@@ -64,7 +64,7 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    addMaterial: async (parent, { materialLabel, materialDetail }, context) => {
+    addMaterial: async (parent, { projectId, materialLabel, materialDetail }, context) => {
       if (context.user) {
         return Project.findOneAndUpdate(
           { _id: projectId },
