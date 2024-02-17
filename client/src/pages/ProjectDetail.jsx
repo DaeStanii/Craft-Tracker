@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import Auth from "../utils/auth";
 
 import MaterialForm from "../components/MaterialForm/MaterialForm";
@@ -10,6 +11,18 @@ import CommentForm from "../components/CommentForm/CommentForm";
 import { QUERY_SINGLE_PROJECT } from "../utils/queries";
 
 const ProjectDetail = () => {
+
+  const [showMaterial, setShowMaterial] = useState(false);
+  const [showComment, setShowComment] = useState(false);
+
+  const toggleShowMaterial = () => {
+    setShowMaterial((showMaterial) => !showMaterial)
+  };
+
+  const toggleShowComment = () => {
+    setShowComment((showComment) => !showComment)
+  }
+
   const { projectId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
@@ -18,13 +31,11 @@ const ProjectDetail = () => {
 
   const project = data?.project || {};
 
-  console.log(Auth.getProfile().data.username, project.projectAuthor)
-
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="text-center">
       <div>
         <h2>{project.projectTitle}</h2>
         <h3>Crafted by: {project.projectAuthor}</h3>
@@ -35,14 +46,16 @@ const ProjectDetail = () => {
       </div>
       {Auth.getProfile().data.username === project.projectAuthor && (
         <div>
-          <MaterialForm projectId={project._id} />
+          <button onClick={toggleShowMaterial}>Add Material</button>
+          { showMaterial && <MaterialForm projectId={project._id} /> }
         </div>
       )}
       <div>
         <CommentList comments={project.comments} />
       </div>
       <div>
-        <CommentForm projectId={project._id} />
+        <button onClick={toggleShowComment}>Add Comment</button>
+        { showComment && <CommentForm projectId={project._id} /> }
       </div>
     </div>
   );

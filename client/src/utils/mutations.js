@@ -49,6 +49,7 @@ export const ADD_MATERIAL = gql`
     addMaterial(projectId: $projectId, materialLabel: $materialLabel, materialDetail: $materialDetail) {
       _id
       projectTitle
+      projectAuthor
       createdAt
       materials {
         _id
@@ -62,7 +63,7 @@ export const ADD_MATERIAL = gql`
 
 export const ADD_COMMENT = gql`
   mutation addComment($projectId: ID!, $commentText: String!) {
-    addComment(projectID: $projectId, commentText: $commentText) {
+    addComment(projectId: $projectId, commentText: $commentText) {
       _id
       projectTitle
       projectAuthor

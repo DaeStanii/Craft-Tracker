@@ -9,7 +9,7 @@ const Home = () => {
   const projects = data?.projects || [];
 
   return (
-    <main>
+    <main className="text-center">
       <div>
         <div>
           {loading ? (
