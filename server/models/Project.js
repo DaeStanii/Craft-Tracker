@@ -10,7 +10,6 @@ const projectSchema = new Schema({
     projectTitle: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
     },
     projectAuthor: {

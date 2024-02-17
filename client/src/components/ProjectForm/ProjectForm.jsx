@@ -62,6 +62,7 @@ const ProjectForm = () => {
           onChange={handleChange}
           value={formState.projectType}
         >
+            <option>     </option>
             <option value="Knitting">Knitting</option>
             <option value="Crocheting">Crocheting</option>
             <option value="Painting">Painting</option>

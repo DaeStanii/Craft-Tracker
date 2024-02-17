@@ -16,6 +16,7 @@ const resolvers = {
     project: async (parent, { projectId }) => {
       return Project.findOne({ _id: projectId });
     },
+    //TODO: Create userProject Query for Profile page 
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("projects");
@@ -122,7 +123,6 @@ const resolvers = {
             $pull: {
               materials: {
                 _id: materialId,
-                materialAuthor: context.user.username,
               },
             },
           },

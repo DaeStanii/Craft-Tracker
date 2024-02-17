@@ -5,7 +5,9 @@ import ProjectList from "../components/ProjectList/ProjectList";
 import { QUERY_PROJECTS } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROJECTS);
+  const { loading, data } = useQuery(QUERY_PROJECTS, {
+    refetchQueries: [{query: QUERY_PROJECTS }],
+  });
   const projects = data?.projects || [];
 
   return (

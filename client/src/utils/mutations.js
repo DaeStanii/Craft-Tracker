@@ -79,3 +79,50 @@ export const ADD_COMMENT = gql`
     }
   }
 `
+
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($projectId: ID!) {
+    removeProject(projectId: $projectId) {
+      _id
+      projectType
+      projectTitle
+      projectAuthor
+      createdAt
+    }
+  }
+`
+
+export const REMOVE_MATERIAL = gql`
+  mutation removeMaterial($projectId: ID!, $materialId: ID!) {
+    removeMaterial(projectId: $projectId, materialId: $materialId) {
+      _id
+      projectType
+      projectTitle
+      projectAuthor
+      createdAt
+      materials {
+        _id
+        materialLabel
+        materialDetail
+        createdAt
+      }
+    }
+  }
+`
+
+export const REMOVE_COMMENT = gql`
+  mutation removeComment($projectId: ID!, $commentId: ID!) {
+    removeComment(projectId: $projectId, commentId: $commentId) {
+      _id
+      projectType
+      projectTitle
+      projectAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`

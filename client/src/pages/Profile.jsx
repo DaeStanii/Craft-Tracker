@@ -1,10 +1,13 @@
 import { useState } from "react";
+// import { useQuery } from "@apollo/client";
 
 import Auth from "../utils/auth";
 import Create from "../public/create.png";
 import ProjectForm from "../components/ProjectForm/ProjectForm";
+import UserProjects from "../components/UserProjects/UserProjects";
 
 const Profile = () => {
+
   const [showCreate, setShowCreate] = useState(false);
 
   const createCraft = () => {
@@ -21,6 +24,15 @@ const Profile = () => {
         </button>
         {showCreate && <ProjectForm />}
       </section>
+{/* 
+      {loading ? (
+        <p>Loading your projects...</p>
+      ) : ( */}
+        <section>
+          <UserProjects 
+          />
+        </section>
+      {/* )} */}
     </div>
   );
 };
