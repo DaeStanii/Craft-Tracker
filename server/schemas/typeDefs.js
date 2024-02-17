@@ -9,6 +9,7 @@ const typeDefs = `
 
   type Project {
     _id: ID
+    projectType: String
     projectTitle: String
     projectAuthor: String
     createdAt: String
@@ -46,8 +47,8 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addProject(projectTitle: String!): Project
-    addMaterial(projectId: ID!, materialLabel: String!, material: String!): Project
+    addProject(projectType: String!, projectTitle: String!): Project
+    addMaterial(projectId: ID!, materialLabel: String!, materialDetail: String!): Project
     addComment(projectId: ID!, commentText: String!): Project
     removeProject(projectId: ID!): Project
     removeMaterial(projectId: ID!, materialId: ID!): Project

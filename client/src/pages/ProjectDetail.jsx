@@ -37,6 +37,7 @@ const ProjectDetail = () => {
   return (
     <div className="text-center">
       <div>
+        <h2>{project.projectType}</h2>
         <h2>{project.projectTitle}</h2>
         <h3>Crafted by: {project.projectAuthor}</h3>
         <h4>Created on: {project.createdAt}</h4>

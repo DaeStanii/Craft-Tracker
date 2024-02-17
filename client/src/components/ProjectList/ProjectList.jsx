@@ -11,6 +11,7 @@ const ProjectList = ({ projects, title, showTitle = true }) => {
       {projects &&
         projects.map((project) => (
           <div  className="border-2" key={project._id}>
+            <h3>{project.projectType}</h3>
             <h3>{project.projectTitle}</h3>
             <p>Created On: {project.createdAt} by {project.projectAuthor}</p>
             <Link to={`/projects/${project._id}`}>View Materials & Comments</Link>

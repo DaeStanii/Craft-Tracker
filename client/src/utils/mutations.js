@@ -25,9 +25,10 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($projectTitle: String!) {
-    addProject(projectTitle: $projectTitle) {
+  mutation addProject($projectType: String!, $projectTitle: String!) {
+    addProject(projectType: $projectType, projectTitle: $projectTitle) {
       _id
+      projectType
       projectTitle
       projectAuthor
       createdAt
@@ -48,6 +49,7 @@ export const ADD_MATERIAL = gql`
   mutation addMaterial($projectId: ID!, $materialLabel: String!, $materialDetail: String!) {
     addMaterial(projectId: $projectId, materialLabel: $materialLabel, materialDetail: $materialDetail) {
       _id
+      projectType
       projectTitle
       projectAuthor
       createdAt
@@ -65,6 +67,7 @@ export const ADD_COMMENT = gql`
   mutation addComment($projectId: ID!, $commentText: String!) {
     addComment(projectId: $projectId, commentText: $commentText) {
       _id
+      projectType
       projectTitle
       projectAuthor
       createdAt

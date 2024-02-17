@@ -5,54 +5,60 @@ import { ADD_MATERIAL } from "../../utils/mutations";
 
 import plus from "../../public/plus.png";
 
-const MaterialForm = () => {
+const MaterialForm = ({ projectId }) => {
 
-  const [formState, setFormState] = useState({ materialLabel: "", materialDetail: ""});
+  const [materialLabel, setMaterialLabel] = useState("");
+  const [materialDetail, setMaterialDetail] = useState("");
   const [addMaterial, { error }] = useMutation(ADD_MATERIAL)
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const { data } = await addMaterial({
-        variables: { ...formState },
+        variables: {
+          projectId,
+          materialLabel,
+          materialDetail,
+        },
       });
+      console.log(data)
+
+      setMaterialLabel("");
+      setMaterialDetail("");
     } catch (e) {
       console.error(e)
     }
-
-    setFormState({
-      materialLabel: "",
-      materialDetail: "",
-    })
-
+    
   };
 
-  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "materialLabel") {
+
+      setMaterialLabel(value);
+    } else if (name === "materialDetail") {
+
+      setMaterialDetail(value)
+    }
+  };
 
   return (
       <form
         className="grid justify-items-center"
         onSubmit={handleFormSubmit}
       >
+        { error && <p>{error.message}</p> }
         <input
-        value={formState.materialLabel}
+        value={materialLabel}
         onChange={handleChange} 
         placeholder="Your Material Brand" 
         name="materialLabel"
         type="text"
         />
         <input 
-        value={formState.materialDetail}
+        value={materialDetail}
         onChange={handleChange}
         placeholder="Your Material" 
         name="materialDetail"

@@ -1,9 +1,11 @@
 [
     {
+        "projectType": "Embroidery",
         "projectTitle": "A Fairy's Trip",
         "projectAuthor": "dae"
     },
     {
+        "projectType": "Painting",
         "projectTitle": "Paint Living Room",
         "projectAuthor": "Matt"
     }

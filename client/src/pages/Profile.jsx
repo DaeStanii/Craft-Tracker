@@ -5,7 +5,6 @@ import Create from "../public/create.png";
 import ProjectForm from "../components/ProjectForm/ProjectForm";
 
 const Profile = () => {
-
   const [showCreate, setShowCreate] = useState(false);
 
   const createCraft = () => {
@@ -20,7 +19,7 @@ const Profile = () => {
         <button onClick={createCraft}>
           <img src={Create} className="rounded-full w-7" />
         </button>
-        { showCreate && <ProjectForm /> }
+        {showCreate && <ProjectForm />}
       </section>
     </div>
   );
