@@ -4,7 +4,7 @@ import { LOGIN_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
-import backgroundImage from "../public/background.png";
+import backgroundImage from "../../public/scribble.png";
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -48,12 +48,10 @@ const Login = () => {
         <div
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
             height: "30vh",
             width: "100%",
           }}
-          className="p-5 object-fill ring ring-cyan-100 rounded-md border-2 border-cyan-400 shadow-lg"
+          className="p-5 object-fill ring ring-cyan-100 rounded-md border-2 border-cyan-400 bg-sky-700/80 shadow-lg"
         >
           <h4 className="text-xl font-bold text-center mb-2">Login</h4>
           <div>

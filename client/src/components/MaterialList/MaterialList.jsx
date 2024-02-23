@@ -6,15 +6,15 @@ const MaterialList = ({ materials = [] }) => {
 
     return(
         <div>
-            <h2>Materials:</h2>
+            <h2 className="text-lg border-dashed border-b-2 border-black">Materials:</h2>
             <div>
                 {materials &&
                     materials.map((material) => (
-                        <div className="border-2" key={material._id}>
-                            <h4>
+                        <div key={material._id}>
+                            <h4 className="border-dotted border-b border-black">
                                 {material.materialLabel}
                             </h4>
-                            <h5>
+                            <h5 className="border-solid border-b border-black">
                                 {material.materialDetail}
                             </h5>
                         </div>

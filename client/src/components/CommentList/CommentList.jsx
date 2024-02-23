@@ -6,16 +6,16 @@ const CommentList = ({ comments = [] }) => {
     
     return (
         <>
-            <h2>Comments:</h2>
+            <h2 className="text-lg border-dashed border-b-2 border-black">Comments:</h2>
 
             <div>
                 {comments &&
                     comments.map((comment) => (
                         <div className="border-2" key={comment._id}>
-                            <h4>
+                            <h4 className="border-dotted border-b border-black text-md">
                                 {comment.commentAuthor} commented on {comment.createdAt}
                             </h4>
-                            <p>{comment.commentText}</p>
+                            <p className="border-solid border-b border-black text-lg">{comment.commentText}</p>
 
                         </div>
                     ))

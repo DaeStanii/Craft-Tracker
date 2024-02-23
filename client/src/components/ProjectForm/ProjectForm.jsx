@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ADD_PROJECT } from "../../utils/mutations";
 import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 
-import plus from "../../public/plus.png";
+import plus from "../../../public/plus.png";
 
 const ProjectForm = () => {
   const [formState, setFormState] = useState({
@@ -41,6 +41,9 @@ const ProjectForm = () => {
       const { data } = await addProject({
         variables: { ...formState },
       });
+
+      console.log(data);
+
     } catch (err) {
       console.log(err);
     }
@@ -54,8 +57,10 @@ const ProjectForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
+    <div className="flex items-center">
+      <form onSubmit={handleFormSubmit} 
+      // className="grid grid-cols-1 gap-2 w-1/2"
+      >
         <label>Choose your Project Type</label>
         <select
           name="projectType"
@@ -69,16 +74,6 @@ const ProjectForm = () => {
             <option value="Embroidery">Embroidery</option>
             <option value="Other">Other</option>
         </select>
-
-        {/* {showOption && 
-        <input 
-        name="projectType"
-        onChange={handleChange}
-        value={formState.projectType}
-        type="text"
-        placeholder="Type of Project"
-        />
-        } */}
 
         <input
           name="projectTitle"

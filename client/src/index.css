@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .background {
-    background-color: azure;
+    background-color: rgba(50, 103, 144, 0.197);
 }
 
 .transparent {

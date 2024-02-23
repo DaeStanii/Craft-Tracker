@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import backgroundImage from "../public/background.png";
+import backgroundImage from "../../public/scribble.png";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -47,8 +47,6 @@ const Signup = () => {
       <div
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
           height: "30vh",
           width: "100%",
         }}

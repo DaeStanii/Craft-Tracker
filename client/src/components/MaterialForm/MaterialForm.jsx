@@ -3,7 +3,8 @@ import { useMutation } from "@apollo/client";
 
 import { ADD_MATERIAL } from "../../utils/mutations";
 
-import plus from "../../public/plus.png";
+import Auth from "../../utils/auth";
+import plus from "../../../public/plus.png";
 
 const MaterialForm = ({ projectId }) => {
 
@@ -45,30 +46,37 @@ const MaterialForm = ({ projectId }) => {
   };
 
   return (
+    <>
+    {Auth.loggedIn() ? (
+      
       <form
-        className="grid justify-items-center"
-        onSubmit={handleFormSubmit}
+      className="grid justify-items-center"
+      onSubmit={handleFormSubmit}
       >
-        { error && <p>{error.message}</p> }
-        <input
-        value={materialLabel}
-        onChange={handleChange} 
-        placeholder="Your Material Brand" 
-        name="materialLabel"
-        type="text"
-        />
-        <input 
-        value={materialDetail}
-        onChange={handleChange}
-        placeholder="Your Material" 
-        name="materialDetail"
-        type="text"
-        />
+      { error && <p>{error.message}</p> }
+      <input
+      value={materialLabel}
+      onChange={handleChange} 
+      placeholder="Your Material Brand" 
+      name="materialLabel"
+      type="text"
+      />
+      <input 
+      value={materialDetail}
+      onChange={handleChange}
+      placeholder="Your Material" 
+      name="materialDetail"
+      type="text"
+      />
         <button type="submit">
-          <img src={plus} className="w-7"></img>
+        <img src={plus} className="w-7"></img>
         </button>
-      </form>
-  );
-};
-
+        </form>
+  ) : (
+    <p>Please log in to comment</p>
+    )}
+    </>
+        );
+      };
+      
 export default MaterialForm;
