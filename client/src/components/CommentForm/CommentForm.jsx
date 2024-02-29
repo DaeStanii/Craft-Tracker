@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
-// import plus from "../../public/plus.png"
+import plus from "../../images/plus.png";
 
 const CommentForm = ({ projectId }) => {
   const [commentText, setCommentText] = useState("");
@@ -24,8 +24,6 @@ const CommentForm = ({ projectId }) => {
         },
       });
 
-      console.log(data)
-
       setCommentText("");
     } catch (err) {
       console.error(err);
@@ -43,36 +41,33 @@ const CommentForm = ({ projectId }) => {
 
   return (
     <div>
+      {Auth.loggedIn() ? (
+        <>
+          <p className="my-2"> Character Count: {characterCount}/280</p>
+          {error && <p>{error.message}</p>}
 
-        {Auth.loggedIn() ? (
-            <>
-            <p> Character Count: {characterCount}/280</p>
-      {error && <p>{error.message}</p>}
-
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <textarea
-            name="commentText"
-            placeholder="Add your comment"
-            value={commentText}
-            onChange={handleChange}
-            ></textarea>
-        </div>
-        <div>
-          <button type="submit">
-            {/* <img 
+          <form onSubmit={handleFormSubmit}>
+            <div>
+              <textarea
+                name="commentText"
+                placeholder="Add your comment"
+                value={commentText}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div>
+              <button type="submit" className="my-3">
+                <img 
                     src={plus}
                     className="w-7"
-                /> */}
-            Add Comment
-          </button>
-        </div>
-      </form>
-                </>
-        ) : (
-            <p>You need to be logged in to comment on this thought!</p>
-        )}
-      
+                />
+              </button>
+            </div>
+          </form>
+        </>
+      ) : (
+        <p>You need to be logged in to comment on this!</p>
+      )}
     </div>
   );
 };

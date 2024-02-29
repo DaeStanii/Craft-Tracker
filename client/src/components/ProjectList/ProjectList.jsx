@@ -7,13 +7,13 @@ const ProjectList = ({ projects, title, showTitle = true }) => {
 
   return (
     <div className="relative">
-      <div className="w-2/5">
+      <div>
       {showTitle && <h3 className="text-xl absolute inset-x-0 -top-20">{title}</h3>}
       </div>
-      <div  className="grid grid-rows-3 grid-flow-col gap-4 mt-2">
+      <div className="columns-1 mt-2">
       {projects &&
         projects.map((project) => (
-          <div  className="border-2 border-black rounded-xl" key={project._id}>
+          <div  className="container border-2 border-black rounded-xl backdrop-blur-sm w-1/2 mt-3 shadow-md" key={project._id}>
             <h3 className="border-dashed border-b-2 border-black text-md">{project.projectType}</h3>
             <h3 className="border-dotted border-b border-black text-lg">{project.projectTitle}</h3>
             <p className="border-dotted border-b border-black text-xs">Created On: {project.createdAt}

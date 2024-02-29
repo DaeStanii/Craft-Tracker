@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import ProjectDetail from './pages/ProjectDetail'
+import SuggestionBox from './pages/SuggestionBox';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/projects/:projectId',
         element: <ProjectDetail />
+      },
+      {
+        path: '/suggestions',
+        element: <SuggestionBox />
       }
     ]
   }

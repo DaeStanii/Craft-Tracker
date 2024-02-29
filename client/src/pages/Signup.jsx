@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import backgroundImage from "../../public/scribble.png";
+import backgroundImage from "../images/scribble.png";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -46,11 +46,10 @@ const Signup = () => {
 
       <div
         style={{
-          backgroundImage: `url(${backgroundImage})`,
           height: "30vh",
           width: "100%",
         }}
-        className="p-5 shadow-lg object-fill ring ring-cyan-100 rounded-md border-2 border-cyan-400"
+        className="p-5 object-fill bg-transparent shadow-2xl border-2 border-black/50 backdrop-blur-md rounded-md"
         >
         <div>
           <h4 className="text-xl font-bold text-center mb-2">Sign Up</h4>
@@ -66,7 +65,7 @@ const Signup = () => {
                   onSubmit={handleFormSubmit}
                   >
                   <input
-                    className="mb-1"
+                    className="mb-1 rounded-sm"
                     placeholder="Your username"
                     name="username"
                     type="text"
@@ -74,7 +73,7 @@ const Signup = () => {
                     onChange={handleChange}
                     />
                   <input
-                    className="mb-1"
+                    className="mb-1 rounded-sm"
                     placeholder="Your email"
                     name="email"
                     type="email"
@@ -82,7 +81,7 @@ const Signup = () => {
                     onChange={handleChange}
                     />
                   <input
-                    className="mb-1"
+                    className="mb-1 rounded-sm"
                     placeholder="******"
                     name="password"
                     type="password"
@@ -91,7 +90,7 @@ const Signup = () => {
                   />
                   <button
                     style={{ cursor: "pointer" }}
-                    className="rounded-lg border border-cyan-500 bg-cyan-200 text-md p-2 text-center hover:bg-cyan-300"
+                    className="rounded-lg my-2 text-center border border-black p-1 rounded bg-gradient-to-t from-violet-300/80 to-blue-300/80"
                     type="submit"
                   >
                     Submit

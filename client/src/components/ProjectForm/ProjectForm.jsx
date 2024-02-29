@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ADD_PROJECT } from "../../utils/mutations";
 import { QUERY_PROJECTS, QUERY_ME } from "../../utils/queries";
 
-import plus from "../../../public/plus.png";
+import plus from "../../images/plus.png";
 
 const ProjectForm = () => {
   const [formState, setFormState] = useState({
@@ -52,17 +52,18 @@ const ProjectForm = () => {
       projectType: "",
       projectTitle: "",
     });
-
-    alert("Craft created!")
   };
 
   return (
-    <div className="flex items-center">
-      <form onSubmit={handleFormSubmit} 
-      // className="grid grid-cols-1 gap-2 w-1/2"
+    <section className="flex items-center justify-center text-center">
+      <div className="container w-2/5 backdrop-blur-sm rounded-lg p-3 border-2 border-black shadow-lg">
+
+      <form onSubmit={handleFormSubmit}
+       className="grid justify-items-center object-fill"
       >
-        <label>Choose your Project Type</label>
+        <label className="text-lg">Choose your Project Type</label>
         <select
+        className="mt-2"
           name="projectType"
           onChange={handleChange}
           value={formState.projectType}
@@ -78,16 +79,18 @@ const ProjectForm = () => {
         <input
           name="projectTitle"
           onChange={handleChange}
+          className="my-1"
           value={formState.projectTitle}
           type="text"
           placeholder="Your Project Title"
-        ></input>
-        <button type="submit">
+          ></input>
+        <button type="submit" className="mt-2">
           <img src={plus} className="w-6" />
         </button>
         {error && <div>{error.message}</div>}
       </form>
-    </div>
+          </div>
+    </section>
   );
 };
 
