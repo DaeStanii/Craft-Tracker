@@ -2,12 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: "Tilt Neon", sans-serif;
+}
+
 .background {
-    background-image: url("./images/paint.png");
-    background-repeat: repeat-y;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
+height: 100vh;
+}
+
+.dark {
+    background-color: #272443;
+    color: #f3f0f1;
+}
+
+html { 
+    background-color: #f3f0f1;
+    color: #272443;
 }
 
 .transparent {

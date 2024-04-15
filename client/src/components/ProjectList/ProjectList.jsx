@@ -8,17 +8,15 @@ const ProjectList = ({ projects, title, showTitle = true }) => {
   return (
     <div className="relative">
       <div>
-      {showTitle && <h3 className="text-xl absolute inset-x-0 -top-20">{title}</h3>}
+      {showTitle && <h3 className="text-xl">{title}</h3>}
       </div>
-      <div className="columns-1 mt-2">
+      <div className="w-full m-2 grid grid-flow-row-dense grid-cols-3 auto-rows-auto gap-3">
       {projects &&
         projects.map((project) => (
-          <div  className="container border-2 border-black rounded-xl backdrop-blur-sm w-1/2 mt-3 shadow-md" key={project._id}>
-            <h3 className="border-dashed border-b-2 border-black text-md">{project.projectType}</h3>
-            <h3 className="border-dotted border-b border-black text-lg">{project.projectTitle}</h3>
-            <p className="border-dotted border-b border-black text-xs">Created On: {project.createdAt}
-            </p>
-            <p className="border-dotted border-b border-black text-sm">
+          <div className="container bg-[#cb9eca] dark:text-[#f3f0f1] rounded-md backdrop-blur-sm max-w-72 mt-3 shadow-md" key={project._id}>
+            <h3 className="text-md">{project.projectType}</h3>
+            <h2 className="text-lg">{project.projectTitle}</h2>
+            <p className="text-sm">
              by {project.projectAuthor}</p>
             <Link to={`/projects/${project._id}`}>View Materials & Comments</Link>
           </div>

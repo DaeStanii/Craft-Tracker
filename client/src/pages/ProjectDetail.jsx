@@ -58,19 +58,19 @@ const ProjectDetail = () => {
   return (
     <main className="flex items-center justify-center mt-7">
       <div className="w-1/2 text-center">
-        <section className=" border-2 border-black rounded-xl backdrop-blur-sm">
-          <p className="text-lg border-dashed border-b-2 border-black">
+        <section className="rounded-md bg-[#cb9eca] backdrop-blur-sm">
+          <p className="text-lg">
             {project.projectType}
           </p>
-          <p className="text-xl border-dotted border-b border-black">
+          <p className="text-xl">
             {project.projectTitle}
           </p>
           <p className="text-lg">Crafted by: {project.projectAuthor}</p>
-          <p className="text-sm border-dotted border-b border-black">
+          <p className="text-sm">
             On {project.createdAt}
           </p>
         </section>
-        <section className="mt-2 border-2 border-black rounded-xl backdrop-blur-sm">
+        <section className="mt-2 rounded-md bg-[#9c82c0] backdrop-blur-sm">
           <div>
             <MaterialList materials={project.materials} project={project} />
           </div>
@@ -82,12 +82,12 @@ const ProjectDetail = () => {
           </div>
         </section>
 
-        <section className="mt-2 border-2 border-black rounded-xl backdrop-blur-sm">
+        <section className="mt-2 rounded-md bg-[#9c82c0] backdrop-blur-sm">
           <div>
             <CommentList comments={project.comments} project={project} />
           </div>
           <div>
-            <button className="my-2 border border-black p-1 rounded bg-gradient-to-t from-violet-300/80 to-blue-300/80" onClick={toggleShowComment}>Add Comment</button>
+            <button className="my-2 p-1 bg-[#cb9eca] rounded border border-[#272443] dark:border-[#f3f0f1] p-1 rounded" onClick={toggleShowComment}>Add Comment</button>
             {showComment && <CommentForm projectId={project._id} />}
           </div>
         </section>
@@ -97,7 +97,7 @@ const ProjectDetail = () => {
         Auth.getProfile().data.username === project.projectAuthor && (
           <button className="p-3" onClick={handleRemoveSubmit}>
             <Link to="/me">
-              <img src={deleteIcon} className="w-6" />
+              <img src={deleteIcon} className="w-6 dark:invert" />
             </Link>
           </button>
         )}

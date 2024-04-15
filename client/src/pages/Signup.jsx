@@ -5,7 +5,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import backgroundImage from "../images/scribble.png";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -41,15 +40,14 @@ const Signup = () => {
 
   return (
     <main className="flex justify-center items-center mt-5">
-      {/* TODO fix full screen view */}
-      <div className="container w-1/2">
+      <div className="container w-1/2 max-w-96">
 
       <div
         style={{
           height: "30vh",
           width: "100%",
         }}
-        className="p-5 object-fill bg-transparent shadow-2xl border-2 border-black/50 backdrop-blur-md rounded-md"
+        className="p-5 bg-[#cb9eca] min-h-56 object-fill shadow-2xl border-2 border-[#272443] backdrop-blur-md rounded-md"
         >
         <div>
           <h4 className="text-xl font-bold text-center mb-2">Sign Up</h4>
@@ -90,11 +88,12 @@ const Signup = () => {
                   />
                   <button
                     style={{ cursor: "pointer" }}
-                    className="rounded-lg my-2 text-center border border-black p-1 rounded bg-gradient-to-t from-violet-300/80 to-blue-300/80"
+                    className="rounded-lg my-2 text-center border text-[#f3f0f1] bg-[#9c4988] border-[#272443] p-1 rounded"
                     type="submit"
                   >
                     Submit
                   </button>
+                  <a href="/login">Already have an account? Login here!</a>
                 </form>
               </>
             )}

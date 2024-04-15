@@ -49,6 +49,7 @@ const CommentForm = ({ projectId }) => {
           <form onSubmit={handleFormSubmit}>
             <div>
               <textarea
+              className="text-[#272443]"
                 name="commentText"
                 placeholder="Add your comment"
                 value={commentText}
@@ -59,7 +60,7 @@ const CommentForm = ({ projectId }) => {
               <button type="submit" className="my-3">
                 <img 
                     src={plus}
-                    className="w-7"
+                    className="w-7 dark:invert"
                 />
               </button>
             </div>

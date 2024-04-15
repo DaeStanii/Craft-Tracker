@@ -20,13 +20,13 @@ const Profile = () => {
 
   return (
     <div className="relative text-center">
-      <h3 className="text-xl absolute inset-x-0 -top-12">
-        Welcome to your profile, {Auth.getProfile().data.username}!
-      </h3>
 
       <section className="mt-3 pt-4">
-        <button onClick={createCraft}>
-          <img src={Create} className="rounded-full w-7" />
+      <h3 className="text-xl">
+        Welcome to your profile, {Auth.getProfile().data.username}!
+      </h3>
+        <button onClick={createCraft} className="mt-5">
+          <img src={Create} className="rounded-full w-7 dark:invert" />
         </button>
         {showCreate && <ProjectForm />}
       </section>

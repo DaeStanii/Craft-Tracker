@@ -56,14 +56,14 @@ const ProjectForm = () => {
 
   return (
     <section className="flex items-center justify-center text-center">
-      <div className="container w-2/5 backdrop-blur-sm rounded-lg p-3 border-2 border-black shadow-lg">
+      <div className="container w-2/5 bg-[#9c82c0] backdrop-blur-sm rounded-lg p-3 shadow-lg">
 
       <form onSubmit={handleFormSubmit}
        className="grid justify-items-center object-fill"
       >
         <label className="text-lg">Choose your Project Type</label>
         <select
-        className="mt-2"
+        className="mt-2 text-[#272443]"
           name="projectType"
           onChange={handleChange}
           value={formState.projectType}
@@ -79,13 +79,13 @@ const ProjectForm = () => {
         <input
           name="projectTitle"
           onChange={handleChange}
-          className="my-1"
+          className="my-1 text-[#272443]"
           value={formState.projectTitle}
           type="text"
           placeholder="Your Project Title"
           ></input>
         <button type="submit" className="mt-2">
-          <img src={plus} className="w-6" />
+          <img src={plus} className="w-6 dark:invert" />
         </button>
         {error && <div>{error.message}</div>}
       </form>

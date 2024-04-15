@@ -3,9 +3,10 @@ import Auth from "../../utils/auth";
 import Home from "../../images/home.png";
 import Profile from "../../images/profile.png";
 import Logout from "../../images/logout.png";
-import Knit from "../../images/knitted-sweater.png";
-import needles from "../../images/needles.png";
+// import Knit from "../../images/knitted-sweater.png";
+// import needles from "../../images/needles.png";
 import paperPlane from "../../images/paper-plane.png";
+import Sidebar from "./Sidebar/Sidebar"
 
 const Header = () => {
   const logout = (event) => {
@@ -15,31 +16,28 @@ const Header = () => {
 
   return (
     <header
-      style={{ backgroundImage: `url(${Knit})`, height: "100px" }}
-      className="sticky bg-blue-400/80 rounded-t-full m-2"
-      // className="h-24 pt-3 pb-2 text-center bg-gradient-to-r from-green-400/50 to-blue-500/50"
+      style={{ height: "50px" }}
+      className="sticky m-0 bg-[#9c4988] dark:bg-[#272443]"
     >
       <div>
-        <Link to="/">
-          <img src={needles} className="w-20 absolute left-7 top-3"></img>
-        </Link>
+        <Sidebar />
+        <h1 className="text-center pt-1 text-[#272443] text-3xl dark:text-[#f3f0f1] font-bold"><a href="/">Craft Tracker</a></h1>
         {Auth.loggedIn() ? (
           <div
-            className="flex flex-row gap-3 bg-blue-400/80 justify-center items-center absolute -bottom-7 right-4 px-2 pb-1 rounded-b-2xl"
-            style={{ backgroundImage: `url(${Knit})` }}
+            className="flex flex-row gap-3 justify-center items-center absolute bottom-2 right-4 px-2 pb-1 rounded-b-2xl"
           >
             <Link to="/">
-              <img src={Home} className="w-7" />
+              <img src={Home} className="w-7 dark:invert" />
             </Link>
             <Link to="/me">
-              <img src={Profile} className="w-7" />
+              <img src={Profile} className="w-7 dark:invert" />
             </Link>
             <Link to="/suggestions">
-            <img src={paperPlane} className=" w-7" />
+            <img src={paperPlane} className="w-7 dark:invert" />
             </Link>
             <button onClick={logout}>
               <Link to="/">
-                <img src={Logout} className="w-7" />
+                <img src={Logout} className="w-7 dark:invert" />
               </Link>
             </button>
           </div>
@@ -47,8 +45,7 @@ const Header = () => {
           <>
             <Link
               to="/login"
-              className="absolute -bottom-5 right-6 rounded-b-xl px-2 bg-blue-400/80"
-              style={{ backgroundImage: `url(${Knit})` }}
+              className="absolute bold bottom-4 right-6 px-2"
             >
               Get Started
             </Link>

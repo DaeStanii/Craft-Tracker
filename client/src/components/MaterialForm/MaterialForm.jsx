@@ -51,8 +51,8 @@ const MaterialForm = ({ projectId, projectAuthor }) => {
     <>
       {Auth.loggedIn() && Auth.getProfile().data.username === projectAuthor && (
         <section>
-          <div className="my-2">
-            <button className="border border-black p-1 rounded bg-gradient-to-t from-violet-300/80 to-blue-300/80" onClick={toggleShowMaterial}>Add Material</button>
+          <div>
+            <button className="my-2 bg-[#cb9eca] border border-[#272443] dark:border-[#f3f0f1] p-1 rounded" onClick={toggleShowMaterial}>Add Material</button>
           </div>
 
           {showMaterial && (
@@ -64,7 +64,7 @@ const MaterialForm = ({ projectId, projectAuthor }) => {
               <input
                 value={materialLabel}
                 onChange={handleChange}
-                className="my-2"
+                className="my-2 text-[#272443]"
                 placeholder="Your Material Brand"
                 name="materialLabel"
                 type="text"
@@ -77,7 +77,7 @@ const MaterialForm = ({ projectId, projectAuthor }) => {
                 type="text"
               />
               <button type="submit" className="my-3">
-                <img src={plus} className="w-7"></img>
+                <img src={plus} className="w-7 dark:invert"></img>
               </button>
             </form>
           )}

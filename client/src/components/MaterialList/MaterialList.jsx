@@ -18,20 +18,20 @@ const MaterialList = ({ materials = [], project = [] }) => {
 
   return (
     <div>
-      <h2 className="text-lg border-dashed border-b-2 border-black py-1">
+      <h2 className="text-lg border-dashed border-b-2 border-black dark:border-white py-1">
         Materials:
       </h2>
       <div>
         {materials &&
           materials.map((material) => (
             <div key={material._id}>
-              <h4 className="border-dotted border-b border-black py-1">
+              <h4 className="border-dotted border-b border-black dark:border-white py-1">
                 {material.materialLabel}
               </h4>
               <h5 className="border-solid py-1">{material.materialDetail}</h5>
               {Auth.loggedIn() &&
                 Auth.getProfile().data.username === project.projectAuthor && (
-                  <div className="border-b border-black">
+                  <div className="border-b border-black dark:border-white">
 
                   <button
                     onClick={async (event) => {
