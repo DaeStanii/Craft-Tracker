@@ -5,9 +5,9 @@ const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 const cors = require('cors');
 
-const corsOptions = {
-  origin: "https://craft-tracker-1.onrender.com",
-}
+// const corsOptions = {
+//   origin: "https://craft-tracker-1.onrender.com",
+// }
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -26,7 +26,7 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
-  app.use(cors(corsOptions));
+  // app.use(cors(corsOptions));
 
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
