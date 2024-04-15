@@ -10,7 +10,7 @@
         "seed": "cd server && npm run seed",
         "build": "cd client && npm run build",
         "install-server": "cd server && npm install",
-        "start-server": "cd server && node app.js",
+        "start-server": "cd server && node server/server.js",
         "install-client": "cd client && npm install",
         "build-client": "cd client && npm run build",
         "start-client": "cd client && npm run start"

@@ -83,7 +83,7 @@ const Login = () => {
                   />
                   <button
                     style={{ cursor: "pointer" }}
-                    className="rounded-lg my-2 bg-[#9c4988] text-center text-[#f3f0f1] border  border-[#272443] p-1 rounded"
+                    className="rounded-lg my-2 bg-[#9c4988] text-center text-[#f3f0f1] border border-[#272443] p-1 rounded"
                     type="submit"
                   >
                     Submit
