@@ -59,7 +59,7 @@ const SuggestionBox = () => {
     
       return (
         <main className="flex justify-center items-center text-center mt-9">
-          <div className=" container w-3/4 backdrop-blur-sm rounded-lg p-3 bg-[#cb9eca] shadow-lg">
+          <div className=" container w-3/4 max-w-md backdrop-blur-sm rounded-lg p-3 bg-[#cb9eca] shadow-lg">
 
           <h1 className="text-xl">Welcome to the Suggestion Box!</h1>
           <h2>Your feedback and ideas are always appreciated</h2>

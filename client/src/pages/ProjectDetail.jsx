@@ -57,7 +57,7 @@ const ProjectDetail = () => {
 
   return (
     <main className="flex items-center justify-center mt-7">
-      <div className="w-1/2 text-center">
+      <div className="w-1/2 max-w-96 text-center">
         <section className="rounded-md bg-[#cb9eca] backdrop-blur-sm">
           <p className="text-lg">
             {project.projectType}
